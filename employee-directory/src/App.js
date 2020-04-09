@@ -1,42 +1,50 @@
-import React from "react";
+import React, {useState} from "react";
 import "./App.css";
-import Manager from "./components/manager";
-import Engineer from "./components/engineer";
-import JuniorEngineer from "./components/junior-engineer";
-import Intern from "./components/intern";
+import Employee from "./components/employee";
+const employeesList = [
+  {
+    name: "Jim",
+    role: "Manager",
+    education: "UofA"
+
+  },
+  {
+    name: "Jennifer",
+    role: "Engineer",
+    education: "ASU"
+
+  },
+  {
+    name: "Mark",
+    role: "Engineer",
+    education: "UofA"
+
+  },
+  {
+    name: "Patricia",
+    role: "Developer",
+    education: "NAU"
+
+  },
+  {
+    name: "Tom",
+    role: "Intern",
+    education: "ASU"
+
+  },
+]
 
 function App() {
-  return <div className="App">
-    <div className="row">
-
-    <div className="col-md-3">
-
-  <Manager/>
-
+  const [employees, setEmployees] = useState(employeesList);
+  return (
+    <div className="App">
+      <div className="row justify-content-center">
+        <div className="">
+          <Employee employeesList={employees} />
+        </div>
+      </div>
     </div>
-
-    <div className="col-md-3">
-      
-  <Engineer/>
-
-    </div>
-
-    <div className="col-md-3">
-
-  <JuniorEngineer/>
-      
-    </div>
-
-    <div className="col-md-3">
-      
-  <Intern/>
-
-    </div>
-    
-
-    </div>
-
-  </div>;
+  );
 }
 
 export default App;
