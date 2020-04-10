@@ -38,7 +38,7 @@ function App() {
   const [employees, setEmployees] = useState(employeesList);
   function ActionLink(e) {
     // e.preventDefault();
-    let empList = employees;
+    let empList = [...employees];
 
     empList.sort((a, b) => {
       if(a[e] < b[e]) {
