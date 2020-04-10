@@ -27,8 +27,24 @@ export default function Employee(props) {
     });
     
     function ActionLink(e) {
-        e.preventDefault();
-        console.log('The link was clicked.');
+        // e.preventDefault();
+        let employeesList = props.employeesList;
+
+        employeesList.sort((a, b) => {
+          if(a[e] < b[e]) {
+            return -1;
+          }
+          if(a[e] > b[e]) {
+            return 1;
+          }
+          return 0;
+          
+        });
+
+        
+        console.log(e);
+        console.log("sorted", employeesList)
+
       }
 
   return (
@@ -38,10 +54,10 @@ export default function Employee(props) {
         <table className="table table-dark">
           <thead>
             <tr>
-              <th className="sort-index" scope="col"><button onClick={ActionLink}>#</button></th>
-              <th className="sort-name" scope="col"><button onClick={ActionLink}>Name</button></th>
-              <th className="sort-role"scope="col"><button onClick={ActionLink}>Role</button></th>
-              <th className="sort-education"scope="col"><button onClick={ActionLink}>Education</button></th>
+              <th className="sort-index" scope="col">#</th>
+              <th className="sort-name" scope="col"><button onClick={()=>{ActionLink("name");}}>Name</button></th>
+              <th className="sort-role"scope="col"><button onClick={()=>{ActionLink("role");}}>Role</button></th>
+              <th className="sort-education"scope="col"><button onClick={()=>{ActionLink("education");}}>Education</button></th>
             </tr>
           </thead>
           <tbody>
