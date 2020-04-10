@@ -1,20 +1,7 @@
-import React from "react";
-
-// items.sort(function(a, b) {
-//   let nameA = a.name.toUpperCase(); // ignore upper and lowercase
-//   let nameB = b.name.toUpperCase(); // ignore upper and lowercase
-//   if (nameA < nameB) {
-//     return -1;
-//   }
-//   if (nameA > nameB) {
-//     return 1;
-//   }
-
-//   // names must be equal
-//   return 0;
-// });
+import React, {useState} from "react";
 
 export default function Employee(props) {
+  // const [employeesList, setEmployeesList] = useState(props.employeesList);
   const employee = props.employeesList.map((item, index) => {
       return (
         <tr>
@@ -26,27 +13,10 @@ export default function Employee(props) {
       );
     });
     
-    function ActionLink(e) {
-        // e.preventDefault();
-        let employeesList = props.employeesList;
-
-        employeesList.sort((a, b) => {
-          if(a[e] < b[e]) {
-            return -1;
-          }
-          if(a[e] > b[e]) {
-            return 1;
-          }
-          return 0;
-          
-        });
-
-        
-        console.log(e);
-        console.log("sorted", employeesList)
-
-      }
-
+  function ActionLink (key) {
+    props.ActionLink(key);
+  }
+console.log("employee Render");
   return (
     <div>
       <div className="container-fluid">
